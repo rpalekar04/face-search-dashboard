@@ -89,24 +89,6 @@ pip install streamlit opencv-python ultralytics deepface mtcnn scipy numpy==1.26
 
 ---
 
-## Important: NumPy Compatibility Fix
-
-If you encounter errors like:
-
-```
-ImportError: numpy.core.multiarray failed to import
-AttributeError: _ARRAY_API not found
-```
-
-Run:
-
-```bash
-pip uninstall numpy -y
-pip install numpy==1.26.4
-```
-
----
-
 ## Run the Application
 
 ```bash
@@ -152,7 +134,7 @@ Open the **Local URL** in your browser.
 
 ---
 
-## Example requirements.txt
+## requirements.txt
 
 ```txt
 streamlit
