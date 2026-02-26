@@ -1,93 +1,173 @@
-Face Search Dashboard
+# 🎯 Face Search Dashboard
 
-A computer vision dashboard that allows users to upload a reference face image and a video, and automatically detects whether the person in the image appears in the video. The app uses YOLOv8, MTCNN, and DeepFace for person detection and face identification.
+A powerful **Computer Vision Dashboard** that allows users to upload a reference face image and a video, and automatically detect whether the person in the image appears in the video.
 
-Features
+Built using **YOLOv8**, **MTCNN**, **DeepFace**, and **Streamlit**, this project demonstrates real-time face search and person detection inside videos.
 
-✔ Upload a reference face image
-✔ Upload a video for face search
-✔ Detect and track faces across video frames
-✔ Compare face embeddings using cosine similarity
-✔ Highlight matches in the video
-✔ Display whether a match is found
-✔ Easy-to-use web UI powered by Streamlit
+---
 
-Project Structure
+## 🚀 Features
+
+- 📷 Upload a reference face image
+- 🎬 Upload a video file
+- 👤 Detect persons using YOLOv8
+- 😀 Detect faces using MTCNN
+- 🧠 Extract embeddings using DeepFace (Facenet)
+- 📐 Compare faces using cosine similarity
+- 🟩 Highlight matched person with bounding box
+- ⚙ Adjustable detection settings
+- 🖥 Clean and interactive Streamlit UI
+
+---
+
+## 📷 Demo
+
+> Add screenshots or GIFs of your application here.
+
+Example:
+
+```markdown
+![Dashboard Screenshot](assets/screenshot.png)
+```
+
+---
+
+## 🛠 Project Structure
+
+```
 face-search-dashboard/
-├── app.py                # Streamlit dashboard application
-├── yolov8n.pt            # YOLOv8 model weights
-├── requirements.txt      # Python dependencies
-├── README.md             # Project documentation
+│
+├── app.py                 # Main Streamlit application
+├── yolov8n.pt             # YOLOv8 model weights
+├── requirements.txt       # Project dependencies
+├── README.md              # Project documentation
+└── assets/                # Optional screenshots/assets
+```
 
-Installation & Setup
-Prerequisites
+---
 
-Make sure you have the following installed on your system:
+## 🧩 Installation & Setup
 
-✔ Python 3.10
-✔ pip
+### 📌 Prerequisites
 
-Clone the Repository
+Make sure you have:
+
+- Python 3.10 (Recommended)
+- pip
+
+⚠ Python 3.12 may cause compatibility issues with NumPy and OpenCV.
+
+---
+
+## 🪄 Clone the Repository
+
+```bash
 git clone https://github.com/rpalekar04/face-search-dashboard.git
 cd face-search-dashboard
+```
 
-Install Dependencies
+---
 
-We recommend creating a new virtual environment:
+## 🐍 Create Virtual Environment (Recommended)
 
+### Windows
+
+```bash
 python -m venv venv
-venv\Scripts\activate        # Windows
-source venv/bin/activate     # macOS/Linux
+venv\Scripts\activate
+```
 
-Then install the requirements:
+### macOS / Linux
 
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+---
+
+## 📦 Install Dependencies
+
+If `requirements.txt` exists:
+
+```bash
 pip install -r requirements.txt
+```
 
-If requirements.txt is not present, then install manually:
+If not, install manually:
 
-pip install streamlit opencv-python ultralytics deepface mtcnn scipy
-Download YOLO Model
+```bash
+pip install streamlit opencv-python ultralytics deepface mtcnn scipy numpy==1.26.4
+```
 
-The dashboard expects the yolov8n.pt file in the project root.
-You can download it manually if auto-download fails:
+---
 
-curl -L -o yolov8n.pt https://github.com/ultralytics/assets/releases/download/v8.4.0/yolov8n.pt
-Run the App
+## ⚠ Important: NumPy Compatibility Fix
+
+If you encounter errors like:
+
+```
+ImportError: numpy.core.multiarray failed to import
+AttributeError: _ARRAY_API not found
+```
+
+Run:
+
+```bash
+pip uninstall numpy -y
+pip install numpy==1.26.4
+```
+
+---
+
+## 🚀 Run the Application
+
+```bash
 streamlit run app.py
+```
 
-You will see output like:
+After running, you will see:
 
+```
 Local URL: http://localhost:8501
-Network URL: http://<your IP>:8501
+Network URL: http://<your-ip>:8501
+```
 
-Open the Local URL in your browser to use the dashboard.
+Open the **Local URL** in your browser.
 
-How It Works
+---
 
-Upload Reference Image: A photo of the person you want to search for
+## 🧪 How It Works
 
-Upload Video: Input video where people should be detected
+1. User uploads a reference image.
+2. DeepFace extracts face embedding from the image.
+3. User uploads a video.
+4. Each video frame is processed.
+5. YOLOv8 detects persons in the frame.
+6. MTCNN detects faces inside each detected person box.
+7. DeepFace extracts embeddings from detected faces.
+8. Cosine similarity compares embeddings.
+9. If similarity is below threshold → MATCH FOUND.
+10. Bounding box appears on matched person.
 
-Face Embedding Extraction: Using DeepFace (Facenet)
+---
 
-Frame Processing: Using YOLOv8 for person bounding boxes
+## 📊 Output Behavior
 
-Face Detection: With MTCNN inside each person region
+### ✅ If Match Found
+- Green bounding box around person
+- “MATCH FOUND” label on video
+- Success message displayed
 
-Cosine Similarity: Match reference embedding vs detected face embeddings
+### ❌ If No Match Found
+- Warning message displayed
+- No bounding box drawn
 
-Display Results: Annotated video frames + result message
+---
 
-Results
+## 📦 Example requirements.txt
 
-✔ If a match is found, the video shows a green box with “MATCH FOUND”
-✔ The app also shows a success alert in the UI
-✔ If no match is found, it displays a warning
-
-Requirements
-
-Example requirements.txt:
-
+```txt
 streamlit
 opencv-python==4.8.1.78
 ultralytics
@@ -95,5 +175,60 @@ deepface
 mtcnn
 scipy
 numpy==1.26.4
+```
 
-Important: Use numpy < 2 to avoid compatibility issues with OpenCV and DeepFace.
+---
+
+## ❗ Common Errors & Fixes
+
+### 🔴 NumPy Version Error
+
+Fix:
+
+```bash
+pip uninstall numpy -y
+pip install numpy==1.26.4
+```
+
+---
+
+### 🔴 cv2 has no attribute imshow
+
+Fix:
+
+```bash
+pip uninstall opencv-python opencv-python-headless -y
+pip install opencv-python==4.8.1.78
+```
+
+---
+
+## 🧠 Technologies Used
+
+- Streamlit
+- YOLOv8 (Ultralytics)
+- DeepFace (Facenet Model)
+- MTCNN
+- OpenCV
+- NumPy
+- SciPy
+
+---
+
+## 🔥 Future Improvements
+
+- Add timestamp when match is found
+- Save processed video with annotations
+- Add confidence score display
+- Add face tracking
+- Add real-time webcam detection
+- Convert to FastAPI + React frontend
+- Deploy on AWS / GCP / Azure
+
+---
+
+
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
