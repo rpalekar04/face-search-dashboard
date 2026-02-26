@@ -29,7 +29,6 @@ face-search-dashboard/
 ├── yolov8n.pt             # YOLOv8 model weights
 ├── requirements.txt       # Project dependencies
 ├── README.md              # Project documentation
-└── assets/                # Optional screenshots/assets
 ```
 
 ---
@@ -43,7 +42,7 @@ Make sure you have:
 - Python 3.10 (Recommended)
 - pip
 
-⚠ Python 3.12 may cause compatibility issues with NumPy and OpenCV.
+Python 3.12 may cause compatibility issues with NumPy and OpenCV.
 
 ---
 
