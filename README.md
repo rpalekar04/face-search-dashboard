@@ -1,4 +1,4 @@
-# 🎯 Face Search Dashboard
+# Face Search Dashboard
 
 A powerful **Computer Vision Dashboard** that allows users to upload a reference face image and a video, and automatically detect whether the person in the image appears in the video.
 
@@ -6,33 +6,21 @@ Built using **YOLOv8**, **MTCNN**, **DeepFace**, and **Streamlit**, this project
 
 ---
 
-## 🚀 Features
+## Features
 
-- 📷 Upload a reference face image
-- 🎬 Upload a video file
-- 👤 Detect persons using YOLOv8
-- 😀 Detect faces using MTCNN
-- 🧠 Extract embeddings using DeepFace (Facenet)
-- 📐 Compare faces using cosine similarity
-- 🟩 Highlight matched person with bounding box
-- ⚙ Adjustable detection settings
-- 🖥 Clean and interactive Streamlit UI
-
----
-
-## 📷 Demo
-
-> Add screenshots or GIFs of your application here.
-
-Example:
-
-```markdown
-![Dashboard Screenshot](assets/screenshot.png)
-```
+- Upload a reference face image
+- Upload a video file
+- Detect persons using YOLOv8
+- Detect faces using MTCNN
+- Extract embeddings using DeepFace (Facenet)
+- Compare faces using cosine similarity
+- Highlight matched person with bounding box
+- Adjustable detection settings
+- Clean and interactive Streamlit UI
 
 ---
 
-## 🛠 Project Structure
+## Project Structure
 
 ```
 face-search-dashboard/
@@ -46,9 +34,9 @@ face-search-dashboard/
 
 ---
 
-## 🧩 Installation & Setup
+## Installation & Setup
 
-### 📌 Prerequisites
+### Prerequisites
 
 Make sure you have:
 
@@ -59,7 +47,7 @@ Make sure you have:
 
 ---
 
-## 🪄 Clone the Repository
+## Clone the Repository
 
 ```bash
 git clone https://github.com/rpalekar04/face-search-dashboard.git
@@ -68,7 +56,7 @@ cd face-search-dashboard
 
 ---
 
-## 🐍 Create Virtual Environment (Recommended)
+## Create Virtual Environment (Recommended)
 
 ### Windows
 
@@ -86,7 +74,7 @@ source venv/bin/activate
 
 ---
 
-## 📦 Install Dependencies
+## Install Dependencies
 
 If `requirements.txt` exists:
 
@@ -102,7 +90,7 @@ pip install streamlit opencv-python ultralytics deepface mtcnn scipy numpy==1.26
 
 ---
 
-## ⚠ Important: NumPy Compatibility Fix
+## Important: NumPy Compatibility Fix
 
 If you encounter errors like:
 
@@ -120,7 +108,7 @@ pip install numpy==1.26.4
 
 ---
 
-## 🚀 Run the Application
+## Run the Application
 
 ```bash
 streamlit run app.py
@@ -137,7 +125,7 @@ Open the **Local URL** in your browser.
 
 ---
 
-## 🧪 How It Works
+## How It Works
 
 1. User uploads a reference image.
 2. DeepFace extracts face embedding from the image.
@@ -152,20 +140,20 @@ Open the **Local URL** in your browser.
 
 ---
 
-## 📊 Output Behavior
+## Output Behavior
 
-### ✅ If Match Found
+### If Match Found
 - Green bounding box around person
 - “MATCH FOUND” label on video
 - Success message displayed
 
-### ❌ If No Match Found
+### If No Match Found
 - Warning message displayed
 - No bounding box drawn
 
 ---
 
-## 📦 Example requirements.txt
+## Example requirements.txt
 
 ```txt
 streamlit
@@ -179,31 +167,7 @@ numpy==1.26.4
 
 ---
 
-## ❗ Common Errors & Fixes
-
-### 🔴 NumPy Version Error
-
-Fix:
-
-```bash
-pip uninstall numpy -y
-pip install numpy==1.26.4
-```
-
----
-
-### 🔴 cv2 has no attribute imshow
-
-Fix:
-
-```bash
-pip uninstall opencv-python opencv-python-headless -y
-pip install opencv-python==4.8.1.78
-```
-
----
-
-## 🧠 Technologies Used
+## Technologies Used
 
 - Streamlit
 - YOLOv8 (Ultralytics)
@@ -215,7 +179,7 @@ pip install opencv-python==4.8.1.78
 
 ---
 
-## 🔥 Future Improvements
+## Future Improvements
 
 - Add timestamp when match is found
 - Save processed video with annotations
@@ -229,6 +193,4 @@ pip install opencv-python==4.8.1.78
 
 
 
-## ⭐ Support
 
-If you like this project, give it a ⭐ on GitHub!
